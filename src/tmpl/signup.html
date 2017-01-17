@@ -1,0 +1,30 @@
+<header>
+    <div class="wrap flex">
+        <span class="logo"><span class="logo-text">DragoMan</span></span>
+        <a href="#login" data-link="login" class="pseudolink link">Log in</a>
+    </div>
+</header>
+<form class="card" name="signUp" id="signUp">
+	{{#if name}}<h4>No such user, you may sign up right now</h4>
+    {{else}} <h3>Sign up</h3>
+    {{/if}}
+    <div class="row input-field">
+        <label for="textsignUp">name</label>
+        <input type="text" id="textsignUp" name="textsignUp" required="" value="{{name}}">
+    </div>
+    <div class="row input-field">
+        <label for="textsignUp">email</label>
+        <input type="email" id="textsignUp" name="emailignUp" required="" value="">
+    </div>
+    <div class="row input-field">
+        <label for="passwordsignUp">password</label>
+        <input type="password" id="passwordsignUp1" name="passwordsignUp" required="" value="{{pass}}">
+    </div>
+     <div class="row input-field">
+        <label for="passwordsignUp">repeat password</label>
+        <input type="password" id="passwordsignUp2" name="passwordsignUp" required="" value="{{pass}}">
+    </div>
+    <div>
+        <button type="submit" id="signUpButton" class="btn form-button">sign up</button>
+    </div>
+</form>

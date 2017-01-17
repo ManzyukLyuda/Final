@@ -1,0 +1,32 @@
+<header>
+    <div class="wrap flex">
+        <span class="logo"><span class="logo-text">DragoMan</span></span>
+        <nav>
+        	<li><a  href="#questions" id="tab" class="link">Questions</a></li>
+        	<li><a href="#login" data-link="login" class="pseudolink link">Log out</a></li>
+        </nav>
+    </div>
+</header>
+	<div class="page-content wrap">
+		<h3>Users</h3>
+			<table>
+			    <thead>
+		        <tr>
+		            <th>Name</th>
+		            <th>Email</th>
+		            <th>Results</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        {{#each users}}
+		        <tr>
+		            <td>{{ name }}</td>
+		            <td> <a href="mailto:{{email}}">{{ email }}</a></td>
+		            <td>{{ result }}</td>
+		        </tr>
+		        {{/each}}
+		    </tbody>
+		</table>
+	</div>
+</div>
+

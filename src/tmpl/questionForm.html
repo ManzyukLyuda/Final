@@ -1,0 +1,30 @@
+<header>
+    <div class="wrap flex">
+        <span class="logo"><span class="logo-text">DragoMan</span></span>
+        <nav>
+            <li><a  href="#questions" data-link="questions" class="pseudolink link" id="tab">Questions</a></li>
+            <li><a href="#admin" data-link="admin" class="pseudolink link" id="tab">Users</a></li>
+            <li><a href="#login" data-link="login" class="pseudolink link">Log out</a></li>
+        </nav>
+    </div>
+</header>
+<form class="card" name="addQuest" id="addQuestion">
+	<h3>Add new question</h3>
+    <div class="row input-field">
+        <select name="questionType" id="questionType">
+            <option value="single">single answer</option>
+            <option  value="multy">multy answer</option>
+            <option  value="text">text answer</option>
+        </select>
+    </div>
+    <div class="row input-field">
+        <label for="questionText">Question</label>
+        <textarea name="questionText" id="questionText" cols="30" rows="10"></textarea>
+    </div>
+    <div id="content">
+        
+    </div>
+    <div class="row flex">
+        <button type="submit" id="btnAddQuestion" class="btn flex-round">ADD</button><a href="#questions" data-link="questions" class="btn btn-start flex-round pseudolink">Cencle</a>
+    </div>
+</form>
