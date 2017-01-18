@@ -10,7 +10,6 @@ let controller = () =>{
         var addButton = document.getElementById('addQuestion');
         adminTab(button);
         newQuestForm(addButton);
-        console.log(button);
 };
 
 
@@ -78,7 +77,7 @@ function addnewQuestion(formQuest, dataTest){
             newQuest.variantA = document.querySelector('input[type=checkbox]#variantA + label>input[type=text]').value;
             newQuest.variantB = document.querySelector('input[type=checkbox]#variantB + label>input[type=text]').value;
             newQuest.variantC = document.querySelector('input[type=checkbox]#variantC + label>input[type=text]').value;
-            let newAns = $( 'input:checked + label > input[type=text]');
+            let newAns = document.querySelector( 'input:checked + label > input[type=text]');
             let answers='';
             for(let n = 0; n<newAns.length; n++){
                 answers += newAns[n].value;

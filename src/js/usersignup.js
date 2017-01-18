@@ -7,7 +7,6 @@ storage.init();
 
 let controller = () =>{
  	let signUp = document.getElementById('signUp');
-  	console.log(signUp);
 	addNewUser(signUp);
 
 };

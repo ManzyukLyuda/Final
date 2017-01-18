@@ -33,6 +33,6 @@ module.exports = {
          handlebars: 'handlebars/dist/handlebars.min.js'
       }
   },
-  // watch: true,
-  // devtool: "source-map"
+  watch: true,
+  devtool: "source-map"
 };

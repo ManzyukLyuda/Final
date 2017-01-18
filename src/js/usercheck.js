@@ -13,7 +13,8 @@ let initData = () => {
     return {
         data: storage.getUsersList(),
         dataTest: storage.getQuestionsList(), 
-        user: getId()
+        user: getId(),
+        Testcount: storage.setTestCount()
     };
 };
 

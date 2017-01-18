@@ -8,7 +8,6 @@ storage.init();
 data: storage.getUsersList();
 let controller = () =>{
  	let logInNewUser = document.getElementById('logInNewUser');
- 	console.log(logInNewUser);
   	logInUser(logInNewUser);
 
 };

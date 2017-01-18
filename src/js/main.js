@@ -20,16 +20,14 @@ import singlePage from '../tmpl/single.html';
 import textPage from '../tmpl/text.html';
 import questionsList from './questionsList';
 import usersList from './usersList';
-// import currentQuest from './testRender';
+import currentQuest from './testRender';
 
 import userCheck from './usercheck'
 import usersignup from './usersignup'
 import confirm from './confirm'
 import addquestion from './addquestion'
-
+import storage from './storage.js'
 import test from './auth'
-
-// import test from './test'
 
 
 const homeInitPage = 'login';
@@ -82,24 +80,24 @@ let config = {
      url: 'home',
      template: homePage,
      initData: function(){},
-      controller: function(){}
+     controller:  storage.setTestCount
   },
   'testRadio':{
      url: '',
      template: testRadio,
-     initData: function(){},
+      initData: function(){},
       controller: function(){}
   },
   'testCheckBox':{
      url: '',
      template: testCheckbox,
-     initData: function(){},
+      initData: function(){},
       controller: function(){}
   },
   'testTextArea':{
      url: '',
      template: testTextArea,
-     initData: function(){},
+      initData: function(){},
       controller: function(){}
   }
 };
@@ -150,7 +148,6 @@ let setUrl = (url) => {
 function renderQuestion(page, newQuestin){
    let main = document.getElementById('page');
    let pageToRender = config[page].template;
-   console.log(pageToRender);
    let template = Handlebars.compile(pageToRender);
    main.innerHTML = template(newQuestin);
    config[page].controller();

@@ -4,7 +4,6 @@ import $ from 'jquery';
 import storage from './storage';
 let controller = () =>{
   let ready = document.getElementById('ready');
-  console.log('ready');
   getResult(ready);
 };
 

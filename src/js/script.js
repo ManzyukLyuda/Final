@@ -18,7 +18,6 @@ window.addEventListener('popstate', function(){
 	if(pseudolink){
 		for(let i=0; i<pseudolink.length; i++){
 				pseudolink[i].addEventListener('click', function(e){
-					console.log(e);
 				main.renderPage(this.dataset.link);
 			});
 		}

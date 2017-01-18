@@ -10,10 +10,7 @@ import user from './usercheck';
 
 storage.init();
 let newEll = {}
-let Testcount = {
-        results: [],
-        total: 0
-    };
+let Testcount = storage.setTestCount();
 let totalСount = 0;
 let questCount = 0;
 let data = storage.getUsersList();
@@ -24,7 +21,6 @@ let currentQuestionArray = storage.getQuestionsList();
 
 
 let controller = () =>{
-    console.log(user.initData);
     var start = document.getElementById('start');
     testInit(start);
 };
@@ -50,7 +46,7 @@ function putQuestion(){
     let max = currentQuestionArray.questions.length;
     let number = Math.floor(Math.random() * (max));
     let newQwestion = currentQuestionArray.questions[number];
-      let answer = newQwestion.answer;
+      let answer = newQwestion.answer.toLowerCase();
       let questionText = newQwestion.question;
         if(newQwestion.type === 'single'){
             main.renderQuestion('testRadio', newQwestion);
@@ -78,15 +74,15 @@ function createQuest(answer, questionText){
            let answerArray =$('#ready').serializeArray();
            let userAnswer= '';
            for(let i = 0; i<answerArray.length; i++){
-                userAnswer += answerArray[i].value;
+                userAnswer += answerArray[i].value.toLowerCase();
            }
             quwestionCheck(userAnswer, answer, questionText);
             if(questCount < 5){
                 putQuestion();
             }
-            else{ 
+            else{
+                questCount = 0;
                 main.renderQuestion('home', Testcount);
-                
             }
             user.id = storage.getUser();
             storage.addResult(user);
@@ -115,7 +111,6 @@ function createQuest(answer, questionText){
             Testcount.results.splice(Testcount.results.length-1, 0, newEll);
             Testcount.total = totalСount;
             let userId = storage.getUser();
-            console.log(userId);
             user.result = Testcount.total;
             user.id = userId.id;
             
@@ -126,21 +121,7 @@ function createQuest(answer, questionText){
 
 function pageEach() {
     storage.init();
-    // if (flag === 1) {
-    //     main.renderPage('login');
-
-    //     let logInForm = document.getElementById('logIn');
-    //     logInForm.addEventListener('submit', resul.checkUser); 
-
-    // } else if (flag === 2) {
-    //     main.renderQuestion('signup', userData);
-    //     addNewUser(data.users);
-    // } else if (flag === 4) {
-    //     main.renderPage('admin');
-    //     var button = document.getElementById('tab');
-    //    adminTab(flag, button);
-
-    // } 
+ 
    if (flag === 6) {
         main.renderPage('questions');
         var button = document.getElementById('tab');
@@ -201,7 +182,6 @@ function adminTab(flag, button){
     button.addEventListener('click', function(e){
         e.preventDefault();
         main.renderPage('questions', dataTest);
-        flag = 6;
         var questButton = document.getElementById('tab');
         var addButton = document.getElementById('addQuestion');
         questTab(flag, questButton);
@@ -250,7 +230,7 @@ function addnewQuestion(formQuest){
             newQuest.variantA = document.querySelector('input[type=checkbox]#variantA + label>input[type=text]').value;
             newQuest.variantB = document.querySelector('input[type=checkbox]#variantB + label>input[type=text]').value;
             newQuest.variantC = document.querySelector('input[type=checkbox]#variantC + label>input[type=text]').value;
-            let newAns = $( 'input:checked + label > input[type=text]');
+            let newAns =  document.querySelector( 'input:checked + label > input[type=text]');
             let answers='';
             for(let n = 0; n<newAns.length; n++){
                 answers += newAns[n].value;
@@ -259,8 +239,6 @@ function addnewQuestion(formQuest){
         }
         
         storage.addQuestion(newQuest);
-       // flag=6;
-        //pageEach();
          main.renderPage('questions');
         var questButton = document.getElementById('tab');
         let addButton = document.getElementById('addQuestion');

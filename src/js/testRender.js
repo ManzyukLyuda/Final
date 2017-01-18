@@ -1,19 +1,19 @@
 'use strict';
 import storage from './storage';
 import router from './main';
-import user from '.usercheck'
+import user from './usercheck'
 
-let currentQuestionArray = storage.getQuestionsList();
-let max = currentQuestionArray.questions.length;
-let number = Math.floor(Math.random() * (max));
-let newQwestion = currentQuestionArray.questions[number];
-storage.init();
+
+//storage.init();
 
 let userId = user.initData().userId;
 
 
 let controller = () =>{
-    console.log(userId);
+    let currentQuestionArray = storage.getQuestionsList();
+    let max = currentQuestionArray.questions.length;
+    let number = Math.floor(Math.random() * (max));
+    let newQwestion = currentQuestionArray.questions[number];
     putQuestion();
     
 };
@@ -68,7 +68,6 @@ function createQuest(answer, questionText){
                 main.renderPage('home', Testcount);
                 
             }
-            console.log(user);
             storage.addResult(user);
         });
 }

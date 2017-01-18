@@ -127,7 +127,16 @@ let syncWithStorage = ()=>{
   localStorage.setItem('dataTest', listTest);
 };
 let userId;
+
 export default {
+    setTestCount: () => {
+        let Testcount = {
+            results: [],
+            total: 0
+        };
+        console.log(Testcount);
+        return Testcount;
+    },
     getUser: () => {
         return userId;
     },
