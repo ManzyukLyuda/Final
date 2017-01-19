@@ -1,2 +1,2 @@
 # Final
-https://finalproectbionic.herokuapp.com/#login
+https://finalproectbionic.herokuapp.com/
