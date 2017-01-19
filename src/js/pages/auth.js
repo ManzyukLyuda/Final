@@ -83,6 +83,7 @@ let createQuest = (answer, questionText) => {
                 questCount = 0;
                 main.renderQuestion('home', Testcount);
                 Testcount = storage.setTestCount();
+                currentQuestionArray = storage.getQuestionsList();
             }
             user.id = storage.getUser();
             storage.addResult(user);

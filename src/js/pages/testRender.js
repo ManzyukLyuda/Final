@@ -8,6 +8,7 @@ let userId = user.initData().userId;
 
 let controller = () =>{
     let currentQuestionArray = storage.getQuestionsList();
+    console.log(currentQuestionArray.length);
     let max = currentQuestionArray.questions.length;
     let number = Math.floor(Math.random() * (max));
     let newQwestion = currentQuestionArray.questions[number];
@@ -59,6 +60,7 @@ let createQuest = (answer, questionText) => {
                 putQuestion();
             }
             else{ 
+                currentQuestionArray = storage.getQuestionsList();
                 main.renderPage('home', Testcount);
                 
             }
