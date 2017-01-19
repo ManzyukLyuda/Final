@@ -25,7 +25,7 @@ import currentQuest from './testRender';
 import userCheck from './usercheck'
 import usersignup from './usersignup'
 import confirm from './confirm'
-import addquestion from './addquestion'
+//import addquestion from './addquestion'
 import storage from './storage.js'
 import test from './auth'
 
@@ -73,8 +73,8 @@ let config = {
   'questionForm':{
      url: '',
      template: questionForm,
-     initData: addquestion.controller,
-     controller: addquestion.initData
+      initData: function(){},
+      controller: function(){}
   },
   'home':{
      url: 'home',

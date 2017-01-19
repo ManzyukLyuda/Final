@@ -5,7 +5,6 @@ import router from './main';
 
 let controller = () => {
     let logInForm = document.getElementById('logIn');
-
     logInForm.addEventListener('submit', checkUser);
 
 }
@@ -14,7 +13,6 @@ let initData = () => {
         data: storage.getUsersList(),
         dataTest: storage.getQuestionsList(), 
         user: getId(),
-        Testcount: storage.setTestCount()
     };
 };
 

@@ -49,6 +49,9 @@ function newQuestForm(button){
 }
 
 
+
+
+
 function addnewQuestion(formQuest){
     formQuest.addEventListener('submit', function(e){
     	let dataTest = storage.getQuestionsList();

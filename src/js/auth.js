@@ -2,7 +2,6 @@
 
 import $ from 'jquery';
 import storage from './storage';
-// import newQwestion from'./testRender'
 import main from './main';
 import user from './usercheck';
 
@@ -83,6 +82,7 @@ function createQuest(answer, questionText){
             else{
                 questCount = 0;
                 main.renderQuestion('home', Testcount);
+                Testcount = storage.setTestCount();
             }
             user.id = storage.getUser();
             storage.addResult(user);
@@ -117,132 +117,3 @@ function createQuest(answer, questionText){
             return Testcount;
 }
 
-
-
-function pageEach() {
-    storage.init();
- 
-   if (flag === 6) {
-        main.renderPage('questions');
-        var button = document.getElementById('tab');
-        adminTab(flag, button);
-    }
-    else {
-        main.renderPage('profile', userData);
-        let start = document.getElementById('ready');
-        start.addEventListener('click', function(e){
-            putQuestion();
-            createQuest(answer, questionText);
-        });
-    }
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function addNewUser(data){
-//   let signUp = document.getElementById('signUp');
-//      signUp.addEventListener('submit', function(e){
-//             e.preventDefault();
-//             let pass1 = document.getElementById('passwordsignUp1').value;
-//             let pass2 = document.getElementById('passwordsignUp2').value;
-//             user.email = document.querySelector('input[type=email]').value;
-//             user.result = 0;
-//             if(validation.newUserVAlidation(pass1, pass2)){
-//                 storage.addUser(user);
-//                 storage.init();
-//                 main.renderPage('signUpSucsess');
-//                 logInNewUser();
-//             }
-  
-
-// function logInNewUser(){
-//     let logInNewUser = document.getElementById('logInNewUser');
-//     logInNewUser.addEventListener('click', function(e){
-//         e.preventDefault();
-//         storage.init();
-//         flag=1;
-//         pageEach();
-//     })
-// } });
-// }
-
-
-function adminTab(flag, button){
-    button.addEventListener('click', function(e){
-        e.preventDefault();
-        main.renderPage('questions', dataTest);
-        var questButton = document.getElementById('tab');
-        var addButton = document.getElementById('addQuestion');
-        questTab(flag, questButton);
-        // newQuestForm(addButton);
-    });
-}
-
-function questTab(flag, button){
-        button.addEventListener('click', function(e){
-        flag = 4;     
-        pageEach();
-    });
-}
-function newQuestForm(button){
-    button.addEventListener('click', function(e){
-        e.preventDefault();    
-        main.renderPage('questionForm', data);
-        main.renderForm('single');
-        let selectType = document.getElementById('questionType');
-        selectType.addEventListener('change', function(e){
-             main.renderForm(e.target.value);
-        });
-        let formQuest = document.getElementById('addQuestion');
-         addnewQuestion(formQuest);
-    })
-}
-
-
-function addnewQuestion(formQuest){
-    formQuest.addEventListener('submit', function(e){
-        e.preventDefault();
-        let newQuest = {};
-        newQuest.type = document.querySelector('select').value;
-        newQuest.question = document.getElementById('questionText').value;
-        newQuest.number = dataTest.questions.length + 1;
-        if(newQuest.type === 'text'){
-            newQuest.answer = document.getElementById('answerText').value;
-        }
-        else if(newQuest.type === 'single'){
-            newQuest.answer = document.querySelector('input[type=radio]:checked + label>input[type=text]').value;
-            newQuest.variantA = document.querySelector('input[type=radio]#variantA + label>input[type=text]').value;
-            newQuest.variantB = document.querySelector('input[type=radio]#variantB + label>input[type=text]').value;
-            newQuest.variantC = document.querySelector('input[type=radio]#variantC + label>input[type=text]').value;
-        }
-        else if(newQuest.type === 'multy'){
-            newQuest.variantA = document.querySelector('input[type=checkbox]#variantA + label>input[type=text]').value;
-            newQuest.variantB = document.querySelector('input[type=checkbox]#variantB + label>input[type=text]').value;
-            newQuest.variantC = document.querySelector('input[type=checkbox]#variantC + label>input[type=text]').value;
-            let newAns =  document.querySelector( 'input:checked + label > input[type=text]');
-            let answers='';
-            for(let n = 0; n<newAns.length; n++){
-                answers += newAns[n].value;
-            }
-            newQuest.answer = answers;
-        }
-        
-        storage.addQuestion(newQuest);
-         main.renderPage('questions');
-        var questButton = document.getElementById('tab');
-        let addButton = document.getElementById('addQuestion');
-        questTab(flag, questButton);
-        newQuestForm(addButton);
-    })
-}

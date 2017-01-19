@@ -62,7 +62,7 @@ let localdataTest = {
         variantA: 'Tom isn\'t here yet',
         variantB: 'Have you got anything else?',
         variantC: 'If you like.',
-        answer:'When are you free?If you like.'
+        answer:'Have you got anything else?If you like.'
         },{
         number: 9,
         type: 'text',
@@ -77,37 +77,17 @@ let localdata = {
         pass: 'admin',
         email: 'admin@ukr.net',
         result: 0
-    }, {
+    },{
         name: 'user',
         pass: 'user',
         email: 'user@gmail.com',
         result: 0
-    },
-    {
-        name: 'Max',
-        pass: '111',
-        email: 'max@gmail.com',
-        result: 0
-    },
-    {
-        name: 'Lyuda',
-        pass: '222',
-        email: 'lyuda@gmail.com',
-        result: 0
-    },
-    {
-        name: 'Jane',
-        pass: '333',
-        email: 'user@gmail.com',
-        result: 0
-    },
-    {
+    },{
         name: 'someone',
         pass: '000',
         email: 'somemail@gmail.com',
         result: 0
-    },
-    {
+    },{
         name: 'Victor',
         pass: '555',
         email: '555@gmail.com',

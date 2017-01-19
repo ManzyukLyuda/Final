@@ -13,7 +13,7 @@ let controller = () =>{
 
 
 let initData = () => {
- storage.init();
+    storage.init();
     return {
         data: storage.getUsersList(),
         dataTest: storage.getQuestionsList()
@@ -32,7 +32,7 @@ function addNewUser(signUp){
             user.email = document.querySelector('input[type=email]').value;
             user.result = 0;
             user.name = document.getElementById('textsignUp').value;
-            if(validation.newUserVAlidation(pass1, pass2)){
+            if(validation.newUserValidation(pass1, pass2) && validation.newEmaikValidation(user.email, user.name)){
             	user.pass = pass1;
             	storage.init();
                 storage.addUser(user);
