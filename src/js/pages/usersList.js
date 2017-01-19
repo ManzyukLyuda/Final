@@ -23,7 +23,7 @@ function adminTab(button){
         router.renderPage('questions');
         var questButton = document.getElementById('tab');
         var addButton = document.getElementById('addQuestion');
-        questTab(questButton);
+        // questTab(questButton);
         newQuestForm(addButton);
     });
 }
@@ -83,9 +83,7 @@ function addnewQuestion(formQuest){
         
         storage.addQuestion(newQuest);
         router.renderPage('questions');
-        var questButton = document.getElementById('tab');
         let addButton = document.getElementById('addQuestion');
-        questTab(questButton);
         newQuestForm(addButton);
     })
 }

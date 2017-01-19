@@ -1,23 +1,23 @@
 'use strict';
-// import auth from './auth';
-import loginPage from '../tmpl/login-form.html';
-import signupPage from '../tmpl/signup.html';
-import userProfilePage from '../tmpl/profile.html';
-import testRadio from '../tmpl/testradio.html';
-import testCheckbox from '../tmpl/testcheckbox.html';
-import testTextArea from '../tmpl/testtextarea.html';
 
-import adminProfilePage from '../tmpl/admin.html';
-import homePage from '../tmpl/home.html';
+import loginPage from '../../tmpl/login-form.html';
+import signupPage from '../../tmpl/signup.html';
+import userProfilePage from '../../tmpl/user/profile.html';
+import testRadio from '../../tmpl/user/test/testradio.html';
+import testCheckbox from '../../tmpl/user/test/testcheckbox.html';
+import testTextArea from '../../tmpl/user/test/testtextarea.html';
+
+import adminProfilePage from '../../tmpl/admin/admin.html';
+import homePage from '../../tmpl/user/home.html';
 import Handlebars from 'handlebars';
 
-import signUpSucsessPage from '../tmpl/sucsess.html';
-import questionPage from '../tmpl/adminQuestion.html';
-import questionForm from '../tmpl/questionForm.html';
+import signUpSucsessPage from '../../tmpl/user/sucsess.html';
+import questionPage from '../../tmpl/admin/adminQuestion.html';
+import questionForm from '../../tmpl/admin/questionForm.html';
 
-import multyPage from '../tmpl/multy.html';
-import singlePage from '../tmpl/single.html';
-import textPage from '../tmpl/text.html';
+import multyPage from '../../tmpl/admin/testtype/multy.html';
+import singlePage from '../../tmpl/admin/testtype/single.html';
+import textPage from '../../tmpl/admin/testtype/text.html';
 import questionsList from './questionsList';
 import usersList from './usersList';
 import currentQuest from './testRender';
@@ -25,8 +25,8 @@ import currentQuest from './testRender';
 import userCheck from './usercheck'
 import usersignup from './usersignup'
 import confirm from './confirm'
-//import addquestion from './addquestion'
-import storage from './storage.js'
+
+import storage from './storage'
 import test from './auth'
 
 
@@ -159,16 +159,14 @@ let renderPage = (page) => {
    let main = document.getElementById('page');
    let pageToRender = config[page].template;
    let template = Handlebars.compile(pageToRender);
-   // if(config[page].initData){
    let dataBase = config[page].initData();
-   // }
    main.innerHTML = template(dataBase);
    config[page].controller();
    setUrl(config[page].url);
 
 }
 
-function renderForm(form){
+let renderForm = (form) => {
    let mainForm = document.getElementById('content');
    let formToRender = configForm[form].template;
 

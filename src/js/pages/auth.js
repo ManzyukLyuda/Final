@@ -41,7 +41,7 @@ let startTest = (e) => {
 }
 
 
-function putQuestion(){
+let putQuestion = () => {
     let max = currentQuestionArray.questions.length;
     let number = Math.floor(Math.random() * (max));
     let newQwestion = currentQuestionArray.questions[number];
@@ -64,7 +64,7 @@ function putQuestion(){
         return questCount;
 }
 
-function createQuest(answer, questionText){
+let createQuest = (answer, questionText) => {
    
     let start = document.getElementById('ready');
         
@@ -90,7 +90,7 @@ function createQuest(answer, questionText){
 }
 
 
- function quwestionCheck(userAnswer, answer, questionText){
+let quwestionCheck = (userAnswer, answer, questionText) => {
             if(userAnswer === answer){ 
                 newEll = {
                     question: questionText,
@@ -112,8 +112,7 @@ function createQuest(answer, questionText){
             Testcount.total = totalСount;
             let userId = storage.getUser();
             user.result = Testcount.total;
-            user.id = userId.id;
-            
+            user.id = userId.id; 
             return Testcount;
 }
 

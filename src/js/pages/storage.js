@@ -114,7 +114,6 @@ export default {
             results: [],
             total: 0
         };
-        console.log(Testcount);
         return Testcount;
     },
     getUser: () => {

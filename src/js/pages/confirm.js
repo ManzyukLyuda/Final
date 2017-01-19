@@ -1,5 +1,5 @@
 'use strict';
-import validation from './pages/validation';
+import validation from './validation';
 import storage from './storage';
 import router from './main';
 
@@ -12,7 +12,6 @@ let controller = () =>{
 
 };
 
-
 let initData = () => {
  storage.init();
     return {
@@ -24,9 +23,7 @@ let initData = () => {
 
 export default {initData, controller};
 
-
-
-function logInUser(logInNewUser){
+let logInUser = (logInNewUser) => {
     	logInNewUser.addEventListener('click', function(e){
         e.preventDefault();
         storage.init();

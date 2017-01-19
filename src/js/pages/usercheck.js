@@ -1,5 +1,5 @@
 'use strict';
-import validation from './pages/validation';
+import validation from './validation';
 import storage from './storage';
 import router from './main';
 
@@ -73,11 +73,3 @@ let  userCheck = (newUser) => {
 }
 
 export default {initData, controller};
-
-// let passCheck = (current, userPass, usaerId){
-//  	if (current === userPass) {
-//         userId = usaerId;
-//         router.renderQuestion('profile', newUser);
-//         break;
-//     }
-// }

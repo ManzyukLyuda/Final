@@ -1,10 +1,7 @@
 'use strict';
 import storage from './storage';
 import router from './main';
-import user from './usercheck'
-
-
-//storage.init();
+import user from './usercheck';
 
 let userId = user.initData().userId;
 
@@ -47,17 +44,14 @@ let putQuestion = () =>{
 }
 
 
-function createQuest(answer, questionText){
-    var answer = answer;
-    var questionText = questionText;
-    storage.init();
-    var start = document.getElementById('ready');
+let createQuest = (answer, questionText) => {
+    let start = document.getElementById('ready');
         
         start.addEventListener("submit", function(e){
             e.preventDefault();
-           var answerArray =$('#ready').serializeArray();
-           var userAnswer= "";
-           for(var i = 0; i<answerArray.length; i++){
+           let answerArray =$('#ready').serializeArray();
+           let userAnswer= "";
+           for(let i = 0; i<answerArray.length; i++){
                 userAnswer += answerArray[i].value;
            }
             quwestionCheck(userAnswer, answer, questionText);

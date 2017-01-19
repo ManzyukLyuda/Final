@@ -1,16 +1,11 @@
 'use strict';
 
-import main from './main';
-// import auth from './auth';
-import storage from './storage';
+import main from './pages/main';
+import storage from './pages/storage';
 
-// let userData = auth.getUser();
+
 storage.init();
 main.init();
-
-
-// let logInForm = document.getElementById('logIn');
-// logInForm.addEventListener('submit', auth.checkUser);
 
 
 window.addEventListener('popstate', function(){

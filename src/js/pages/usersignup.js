@@ -1,5 +1,5 @@
 'use strict';
-import validation from './pages/validation';
+import validation from './validation';
 import storage from './storage';
 import router from './main';
 

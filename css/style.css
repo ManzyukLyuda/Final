@@ -48,7 +48,7 @@ h3 {
 .flex-round {
     flex: 1;
 }
-
+.namber{text-align: right;}
 .link {
     color: #4db6ac;
     padding: 0 34px;

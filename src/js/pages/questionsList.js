@@ -23,24 +23,14 @@ let dataTest = storage.getQuestionsList();
 
 export default {initData, controller};
 
-function adminTab(button){
+let adminTab = (button) => {
     	button.addEventListener('click', function(e){
         e.preventDefault();
         router.renderPage('admin');
-        // var questButton = document.getElementById('tab');
-        
-        // questTab(questButton);
-        // newQuestForm(addButton);
     });
 }
 
-// function questTab(flag, button){
-//         button.addEventListener('click', function(e){
-//         flag = 4;     
-//         router.renderPage('admin');
-//     });
-// }
-function newQuestForm(button){
+let newQuestForm = (button) => {
     button.addEventListener('click', function(e){
         e.preventDefault();    
         router.renderPage('questionForm');
@@ -56,7 +46,7 @@ function newQuestForm(button){
 }
 
 
-function addnewQuestion(formQuest, dataTest){
+let addnewQuestion = (formQuest, dataTest) => {
     storage.init();
     formQuest.addEventListener('submit', function(e){
         e.preventDefault();
@@ -86,12 +76,6 @@ function addnewQuestion(formQuest, dataTest){
         }
         
         storage.addQuestion(newQuest);
-       // flag=6;
-        //pageEach();
         router.renderPage('questions');
-        var questButton = document.getElementById('tab');
-        let addButton = document.getElementById('addQuestion');
-        questTab(flag, questButton);
-        newQuestForm(addButton);
     })
 }
