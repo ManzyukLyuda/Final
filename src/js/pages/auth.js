@@ -82,6 +82,7 @@ let createQuest = (answer, questionText) => {
             else{
                 questCount = 0;
                 main.renderQuestion('home', Testcount);
+                totalСount = 0;
                 Testcount = storage.setTestCount();
                 currentQuestionArray = storage.getQuestionsList();
             }
